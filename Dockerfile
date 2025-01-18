@@ -36,6 +36,9 @@ COPY --chmod=755 ./assets /run/assets
 # Tải driver virtio-win từ GitHub
 ADD --chmod=664 https://github.com/qemus/virtiso-whql/releases/download/v1.9.44-0/virtio-win-1.9.44.tar.xz /drivers.txz
 
+# Khai báo và gán giá trị cho biến VERSION_ARG
+ARG VERSION_ARG="latest"  # Hoặc thay "latest" bằng phiên bản cụ thể của Windows bạn muốn sử dụng
+
 # Chuyển sang image build cho ARM64
 FROM dockurr/windows-arm:${VERSION_ARG} AS build-arm64
 
